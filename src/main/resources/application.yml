@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rewe_digital
+    driver-class-name: org.postgresql.Driver
+    username: root
+    password: root
+    platform: postgres
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.xml
+
+  jpa:
+    hibernate:
+      ddl-auto: none   # Миграциите ще се изпълняват с Liquibase, затова Hibernate няма да генерира схеми
+    show-sql: true     # Опционално - за да виждаш изпълнените SQL заявки в конзолата
+
+logging:
+  level:
+    liquibase: info
+
+server:
+  port: 8080
